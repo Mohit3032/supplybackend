@@ -38,40 +38,114 @@ const transporter = nodemailer.createTransport({
     const brochurePath = path.join(__dirname, "../assets/brochure1.pdf");
 
     // Mail to user (with brochure)
-    const userMailOptions = {
-      from: `"ARO Events" <${process.env.EMAIL_USER}>`,
-      to: email,
-      subject: "Thanks for Reaching Out to ARO Events",
-      html: `
-        <div style="font-family: Arial, sans-serif; color:#333; line-height:1.6;">
-          <div style="background:#1d2163; padding:15px; text-align:center; color:#fff; border-radius:6px 6px 0 0;">
-            <h2 style="margin:0;">🤝 Thanks for Contacting ARO Events</h2>
-          </div>
-          <div style="padding:20px; background:#f9f9f9; border:1px solid #ddd; border-top:none; border-radius:0 0 6px 6px;">
-            <p>Hi <b>${name || "there"}</b>,</p>
-            <p>Thanks for contacting <b>ARO Events</b>! We’ve received your message and our team will get back to you soon.</p>
-            
-            <p>In the meantime, you can explore our upcoming conferences and connect with us here:</p>
-            <ul style="list-style:none; padding-left:0;">
-              <li>🌐 <a href="https://www.aroevents.com" target="_blank">www.aroevents.com</a></li>
-              <li>🔗 <a href="https://www.linkedin.com/company/aro-events" target="_blank">LinkedIn</a></li>
-              <li>📸 <a href="https://www.instagram.com/aro_events_" target="_blank">@aro_events_</a></li>
-              <li>📘 <a href="https://www.facebook.com/aroevents" target="_blank">Facebook</a></li>
-              <li>🐦 <a href="https://twitter.com/AroEvents" target="_blank">@AroEvents</a></li>
-            </ul>
-            
-            <p style="margin-top:20px;">We’re excited to connect with you and will be in touch shortly.</p>
-            <p style="font-weight:bold;">Best regards,<br/>The ARO Events Team</p>
-          </div>
-        </div>
-      `,
-      attachments: [
-        {
-          filename: "brochure1.pdf",
-          path: brochurePath,
-        },
-      ],
-    };
+ const userMailOptions = {
+  from: `"ARO Events" <${process.env.EMAIL_USER}>`,
+  to: email,
+  subject: "Thank you for your interest – Supply Chain AI Conference",
+  html: `
+<!DOCTYPE html>
+<html>
+  <body style="margin:0;padding:0;background:#ffffff;font-family:Arial, Helvetica, sans-serif;color:#333;">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="padding:30px 20px;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="max-width:720px;margin:0 auto;">
+
+            <tr>
+              <td style="font-size:15px;line-height:1.6;">
+                Hi <strong>${name}</strong>,
+              </td>
+            </tr>
+
+            <tr><td style="height:18px;"></td></tr>
+
+            <tr>
+              <td style="font-size:15px;line-height:1.6;">
+                Thank you for showing your interest in our upcoming
+                <strong>SupplyChainAiConference</strong>.
+                We are currently working on the conference program and agenda,
+                please be patient while we confirm our speaker panel.
+              </td>
+            </tr>
+
+            <tr><td style="height:18px;"></td></tr>
+
+            <tr>
+              <td style="font-size:15px;line-height:1.6;">
+                You will receive the agenda to your respective email id once it's ready.
+                Meanwhile, please find the attached our drafted agenda for your consideration.
+              </td>
+            </tr>
+
+            <tr><td style="height:22px;"></td></tr>
+
+            <tr>
+              <td style="font-size:15px;line-height:1.6;">
+                You can explore our latest event conference agenda, attendee list,
+                demographics, attendee job title/roles, visiting companies, etc. from here:<br>
+                <a href="https://supplychainaiconference.com"
+                   style="color:#1d2163;text-decoration:none;">
+                  https://supplychainaiconference.com
+                </a>
+              </td>
+            </tr>
+
+            <tr><td style="height:22px;"></td></tr>
+
+            <tr>
+              <td style="font-size:15px;line-height:1.6;">
+                If you or someone from your team would like to attend this event,
+                please reply to this email and we will share more details with you accordingly!
+              </td>
+            </tr>
+
+            <tr><td style="height:22px;"></td></tr>
+
+            <tr>
+              <td style="font-size:15px;line-height:1.6;">
+                Many thanks for registering!
+              </td>
+            </tr>
+
+            <tr><td style="height:22px;"></td></tr>
+
+            <tr>
+              <td style="font-size:15px;">
+                Best wishes,<br>
+                <strong>Delegate Support Team</strong><br>
+                ARO EVENTS
+              </td>
+            </tr>
+
+            <tr><td style="height:30px;"></td></tr>
+
+            <tr>
+              <td style="font-size:12px;color:#777;border-top:1px solid #e5e5e5;padding-top:12px;">
+                This system generated e-mail was sent from
+                SupplyChainAiConference
+                (<a href="https://supplychainaiconference.com"
+                    style="color:#777;text-decoration:none;">
+                  https://supplychainaiconference.com
+                </a>).
+                Hit ‘Reply-All’ to get in touch with us directly!
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+`,
+  attachments: [
+    {
+      filename: "brochure1.pdf",
+      path: brochurePath,
+    },
+  ],
+};
+
 
 const adminMailOptions = {
   from: `"ARO Events Website" <${process.env.EMAIL_USER}>`,
